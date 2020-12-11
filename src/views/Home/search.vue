@@ -1,43 +1,33 @@
 <template>
-  <div id="app">
-<comfooternav></comfooternav>
+<div>
+<div class="search"  >
+                  <svg class="icon" aria-hidden="true">
+        <use xlink:href="#iconsearch"></use>
+                  </svg>
+                  <input type="text" placeholder="搜索明星、演出、场馆" >
+                </div>
+<button @click="go()">取消</button>
+<div>
+<p> 搜索推荐</p>
+</div>
+</div>
 
- <router-view></router-view>
-  </div>
+
 </template>
 <script>
-import comfooternav from "@/components/comfooternav"
-
-
 export default {
-    //组件名字
-  name: "App",
-  //接收父组件给的东西 type是接收什么东西  default 默认值
-  props: {
-    list: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
-    color:{
-        type: String,
-        default:'#000'
-    }
-  },
-  //组件注册
-  components: {
-comfooternav
+data(){
 },
-  // vue数据集中管理
-  data() {
+ data() {
     return {
       value: "1"
     };
   },
   //方法 函数写这里
   methods: {
-
+ go:function(){
+     this.$router.go(-1);
+        }
    },
  //计算属性
   computed: {},
@@ -98,11 +88,16 @@ comfooternav
     next();
   }
 }
-
 </script>
 <style lang="scss">
-*{
-list-style: none;
+button{
+padding-right: 50px;
+float:right;
+border: none;
+background-color: transparent;
 }
-
+input{
+border: none;
+background-color: transparent;
+}
 </style>

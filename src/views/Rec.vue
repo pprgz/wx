@@ -1,36 +1,23 @@
 <template>
-  <div id="app">
-<comfooternav></comfooternav>
-
- <router-view></router-view>
-  </div>
+    <div>
+<h1>分类页面</h1>
+    </div>
 </template>
 <script>
-import comfooternav from "@/components/comfooternav"
-
-
 export default {
-    //组件名字
-  name: "App",
-  //接收父组件给的东西 type是接收什么东西  default 默认值
-  props: {
-    list: {
+name:"Rec",
+props:{
+list: {
       type: Array,
       default() {
         return [];
       }
-    },
-    color:{
-        type: String,
-        default:'#000'
     }
-  },
-  //组件注册
-  components: {
-comfooternav
 },
-  // vue数据集中管理
-  data() {
+components:{},
+data(){
+},
+ data() {
     return {
       value: "1"
     };
@@ -98,11 +85,7 @@ comfooternav
     next();
   }
 }
-
 </script>
-<style lang="scss">
-*{
-list-style: none;
-}
+<style lang="scss" scoped>
 
 </style>

@@ -1,42 +1,35 @@
 <template>
-  <div id="app">
-<comfooternav></comfooternav>
-
- <router-view></router-view>
-  </div>
+        <div class="topbar">
+          <span class="city-picker">
+             <svg class="icon" aria-hidden="true"> <use xlink:href="#iconicon-test"></use></svg>
+              上海
+          </span>
+                <div class="search" @click="go()" >
+                  <svg class="icon" aria-hidden="true">
+        <use xlink:href="#iconsearch"></use>
+                  </svg>
+                  <span >搜索明星、演出、场馆</span>
+                </div>
+      </div>
 </template>
+
 <script>
-import comfooternav from "@/components/comfooternav"
-
-
 export default {
-    //组件名字
-  name: "App",
-  //接收父组件给的东西 type是接收什么东西  default 默认值
-  props: {
-    list: {
-      type: Array,
-      default() {
-        return [];
-      }
-    },
-    color:{
-        type: String,
-        default:'#000'
-    }
-  },
-  //组件注册
-  components: {
-comfooternav
+  name: "Home",
+  components: {},
+data(){
 },
-  // vue数据集中管理
-  data() {
+ data() {
     return {
       value: "1"
     };
   },
   //方法 函数写这里
   methods: {
+ go:function(){
+     this.$router.push({path:"/search"});
+        }
+
 
    },
  //计算属性
@@ -97,12 +90,34 @@ comfooternav
     // 离开当前路由页面时调用
     next();
   }
-}
+};
 
 </script>
-<style lang="scss">
-*{
-list-style: none;
+<style lang="scss" >
+* {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+.search{
+line-height: 30px;
+margin-left: 20px;
+display: inline-block;
+padding: 0 10px;
+width: 200px;
+height: 30px;
+border:1px solid #999 ;
+border-radius: 50px;
+background-color:rgb(231, 231, 231);
+}
+.icon{
+line-height: 20px;
+width: 20px;
+height: 17px;
+}
+
+
 
 </style>
